@@ -26,7 +26,8 @@ ansible -i /dev/null \
 		detach=true \
 		command='/usr/lib/systemd/systemd \
 		--system' \
-		privileged=true"
+        capabilities=SYS_ADMIN \
+        $([[ $TRAVIS = true ]] && echo privileged=true)"
 # Fedora is lacking python in base image
 docker exec -it "${container_name}" "${pkg_mgr}" install -y python
 ansible -i "${inventory}" \
