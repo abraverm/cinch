@@ -46,6 +46,10 @@ ansible-playbook -i "${inventory}" \
 	"${cinch}/cinch/site.yml" \
 	-e jenkins_user_password=somedummyvalue
 ########################################################
+# Run inspec against the container
+########################################################
+inspec exec "${cinch}/tests/cinch" --attrs "${cinch}/tests/profile.yml" -t "docker://${container_name}"
+########################################################
 # Finish and close up the container
 ########################################################
 echo "Saving image"
