@@ -7,7 +7,6 @@ license: GPL-3.0
 summary: Cinch Compliance Profile
 version: 0.1.0
 depends:
-- name: jenkins
-  git: https://github.com/abraverm/jenkins-profile.git
-  branch: initial_tests
-
+  - name: jenkins
+    git: https://github.com/abraverm/jenkins-profile.git
+    branch: initial_tests
