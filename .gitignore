@@ -20,3 +20,4 @@ coverage.xml
 htmlcov/
 .pytest_cache/
 **/*.lock
+tests/profile.yml

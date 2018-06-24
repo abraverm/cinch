@@ -8,5 +8,5 @@ summary: Cinch Compliance Profile
 version: 0.1.0
 depends:
   - name: jenkins
-    git: https://github.com/abraverm/jenkins-profile.git
-    branch: initial_tests
+    git: https://github.com/RedHatQe/jenkins-profile.git
+    branch: master

@@ -26,8 +26,8 @@ ansible -i /dev/null \
 		detach=true \
 		command='/usr/lib/systemd/systemd \
 		--system' \
-        capabilities=SYS_ADMIN \
-        $([[ $TRAVIS = true ]] && echo privileged=true)"
+		capabilities=SYS_ADMIN \
+		$([[ $TRAVIS = true ]] && echo privileged=true)"
 # Fedora is lacking python in base image
 docker exec -it "${container_name}" "${pkg_mgr}" install -y python
 ansible -i "${inventory}" \
@@ -48,6 +48,7 @@ ansible-playbook -i "${inventory}" \
 ########################################################
 # Run inspec against the container
 ########################################################
+erb "${cinch}/tests/profile.yml.erb" > "${cinch}/tests/profile.yml"
 inspec exec "${cinch}/tests/cinch" --attrs "${cinch}/tests/profile.yml" -t "docker://${container_name}"
 ########################################################
 # Finish and close up the container
