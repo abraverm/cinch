@@ -80,7 +80,7 @@ jenkins_java_extra_options: []
 # comfortably without having to re-login.
 session_timeout: 480
 # Command line arguments for Jenkins
-jenkins_args: "--sessionTimeout={{ session_timeout }}"
+jenkins_args:
 # A list of additional packages you wish to install using the default package
 # manager.
 jmaster_extra_rpms: []
